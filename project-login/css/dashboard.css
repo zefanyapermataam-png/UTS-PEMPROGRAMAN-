@@ -1,0 +1,43 @@
+/* ==========================================================================
+   LUMORA – css/dashboard.css
+   Aturan khusus halaman Dashboard.
+   Design tokens, reset, dan komponen dasar (.btn, .brand-link, dst.)
+   sudah dimuat lebih dulu dari css/style.css, sehingga file ini hanya
+   berisi tata letak yang belum ada di sana (tanpa menduplikasi aturan).
+   ========================================================================== */
+
+.dashboard-body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--color-surface-alt);
+}
+
+.dashboard-shell {
+  max-width: 64rem;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 4vw, 3rem);
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboard-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dashboard-logout {
+  width: auto;
+  padding-inline: 1.5rem;
+}
+
+.dashboard-card {
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  border: 1px solid rgba(20, 15, 61, 0.08);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}

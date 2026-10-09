@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+  WCAG 2.2 - Bahasa utama dokumen didefinisikan (3.1.1, Level A)
+-->
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <!-- Tidak ada user-scalable=no / maximum-scale: zoom tetap diizinkan (1.4.4 Resize Text, 1.4.10 Reflow) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Halaman masuk (Sign In) Lumora dengan akun Google atau email/username.">
+
+  <!-- 2.4.2 Page Titled (Level A): judul halaman jelas dan deskriptif -->
+  <title>Masuk ke Akun – Lumora</title>
+
+  <!-- Typography: Google Font Poppins (400 body, 500/600 UI, 700 heading) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS eksternal -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+
+<body>
+
+  <!-- 2.4.1 Bypass Blocks (Level A): tautan lompat ke konten utama -->
+  <a class="skip-link" href="#signin-heading">Lewati ke formulir masuk</a>
+
+  <!--
+    Konten berbahasa Inggris ditandai lang="en"
+    agar screen reader memakai pengucapan yang benar (3.1.2 Language of Parts, Level AA)
+  -->
+  <main class="split-layout" lang="en">
+
+    <!-- =====================================================
+         KOLOM FORM (45%)
+         Diletakkan PERTAMA di DOM agar pengguna screen reader / keyboard
+         langsung sampai ke form (2.4.3 Focus Order, 1.3.2 Meaningful Sequence).
+         Secara visual dipindah ke kanan memakai CSS Grid.
+         ===================================================== -->
+    <section class="form-panel" aria-labelledby="signin-heading">
+
+      <div class="login-card">
+
+        <!-- 1-3. Logo, heading Sign In, deskripsi singkat -->
+        <header class="login-header">
+          <a class="brand-link" href="#" aria-label="Lumora, beranda">
+            <!-- 1.1.1 Non-text Content: logo bersifat dekoratif karena nama ada di teks -->
+            <img class="brand-logo" src="assets/images/logo.png" alt="" width="44" height="44">
+            <span class="brand-name">Lumora</span>
+          </a>
+
+          <h1 id="signin-heading" class="login-title">Sign In</h1>
+          <p class="login-desc">Enter your details to access your account.</p>
+        </header>
+
+        <form class="login-form" id="loginForm" action="#" method="post" novalidate>
+
+          <!-- Area pesan status form (sukses/gagal).
+               role="alert" + aria-live="assertive": pembaca layar langsung
+               mengumumkan perubahan pesan (3.3.1 Error Identification, Level A) -->
+          <p class="form-feedback" id="formFeedback" role="alert" aria-live="assertive" hidden></p>
+
+          <!-- 4. Tombol Sign in with Google.
+               aria-label memuat teks yang terlihat (2.5.3 Label in Name, Level A) -->
+          <button class="btn btn-google" type="button" id="googleSignIn" aria-label="Sign in with Google">
+            <img class="btn-icon" src="assets/icons/google.svg" alt="" width="24" height="24">
+            <span>Sign in with Google</span>
+          </button>
+
+          <!-- 5. Divider OR -->
+          <div class="divider" role="separator" aria-label="or">
+            <span class="divider-text" aria-hidden="true">OR</span>
+          </div>
+
+          <!-- 6. Email atau Username
+               1.3.5 Identify Input Purpose (AA): autocomplete="username"
+               3.3.2 Labels or Instructions (A): label terlihat + hint -->
+          <div class="field">
+            <label class="field-label" for="identifier">Email or username</label>
+            <input class="field-input" type="text" id="identifier" name="identifier"
+                   autocomplete="username" inputmode="email"
+                   autocapitalize="none" spellcheck="false"
+                   placeholder="name@example.com"
+                   aria-describedby="identifier-hint" required>
+            <p class="field-hint" id="identifier-hint">Use the email or username you registered with.</p>
+          </div>
+
+          <!-- 7. Password
+               3.3.8 Accessible Authentication (AA): paste & password manager diperbolehkan,
+               tidak ada tes kognitif / CAPTCHA -->
+          <div class="field">
+            <label class="field-label" for="password">Password</label>
+            <div class="password-wrapper">
+              <input class="field-input" type="password" id="password" name="password"
+                     autocomplete="current-password"
+                     placeholder="Enter your password"
+                     minlength="8" required>
+              <button class="password-toggle" type="button" id="togglePassword"
+                      aria-pressed="false" aria-label="Show password">Show</button>
+            </div>
+          </div>
+
+          <!-- 8. Forgot password -->
+          <div class="form-row form-row-end">
+            <a class="link" href="#">Forgot Password?</a>
+          </div>
+
+          <!-- 9. Remember me -->
+          <div class="form-row">
+            <input class="check-input" type="checkbox" id="remember" name="remember">
+            <label class="check-label" for="remember">Remember Me</label>
+          </div>
+
+          <!-- 10. Tombol utama -->
+          <button class="btn btn-primary" type="submit" id="submitBtn">Sign In</button>
+        </form>
+
+        <!-- 11. Footer -->
+        <footer class="login-footer">
+          <p class="signup-text">Don't have an account? <a class="link link-strong" href="#">Sign Up</a></p>
+          <!-- 3.2.6 Consistent Help (A, WCAG 2.2): bantuan di lokasi konsisten -->
+          <p class="help-text"><a class="link" href="#">Need help signing in?</a></p>
+        </footer>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         KOLOM BRANDING (55%) - dekoratif + teks sambutan
+         ===================================================== -->
+    <section class="brand-panel" aria-labelledby="welcome-heading">
+
+      <!-- Ilustrasi digital workspace; dekoratif (alt kosong) -->
+      <img class="brand-illustration" src="assets/images/illustration.jpg" alt="" width="1200" height="1500">
+
+      <!-- Elemen dekoratif (CSS Positioning: absolute). Disembunyikan dari AT -->
+      <span class="deco deco-ring" aria-hidden="true"></span>
+      <span class="deco deco-circle" aria-hidden="true"></span>
+      <span class="deco deco-pill" aria-hidden="true"></span>
+      <span class="deco deco-dots" aria-hidden="true"></span>
+
+      <div class="brand-content">
+        <h2 id="welcome-heading" class="brand-title">Welcome Back</h2>
+        <p class="brand-subtitle">Access your account and continue your journey.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JS eksternal: logika sign in (lihat js/script.js) -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>

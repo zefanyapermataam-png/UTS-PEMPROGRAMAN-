@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dashboard setelah berhasil masuk ke akun Lumora.">
+  <title>Dashboard – Lumora</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS eksternal: token & komponen dasar dipakai ulang dari style.css,
+       aturan khusus halaman ini ada di dashboard.css (tanpa duplikasi) -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+
+<body class="dashboard-body">
+
+  <a class="skip-link" href="#dashboard-heading">Lewati ke konten utama</a>
+
+  <main class="dashboard-shell">
+    <header class="dashboard-topbar">
+      <a class="brand-link" href="index.html" aria-label="Lumora, beranda">
+        <img class="brand-logo" src="assets/images/logo.png" alt="" width="36" height="36">
+        <span class="brand-name">Lumora</span>
+      </a>
+      <button class="btn btn-google dashboard-logout" type="button" id="logoutBtn">Sign Out</button>
+    </header>
+
+    <section class="dashboard-card" aria-labelledby="dashboard-heading">
+      <h1 id="dashboard-heading" class="login-title">Welcome back<span id="dashboardName">!</span></h1>
+      <p class="login-desc">Kamu berhasil masuk ke akun Lumora. Ini halaman contoh setelah proses Sign In selesai.</p>
+    </section>
+  </main>
+
+  <script src="js/dashboard.js" defer></script>
+</body>
+</html>
